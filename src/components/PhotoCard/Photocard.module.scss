@@ -1,0 +1,13 @@
+.photoCard__main {
+  height: 400px;
+  width: 300px;
+  border-radius: 20px;
+  background-color: pink;
+  padding: 20px;
+  margin-right: 10px;
+
+  .photoCard__photo {
+    width: 200px;
+    height: 120px;
+  }
+}
