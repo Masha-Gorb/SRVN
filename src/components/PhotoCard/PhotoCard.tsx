@@ -1,15 +1,20 @@
 import g from './../../global.module.scss'
 import s from './Photocard.module.scss'
+import {FC} from "react";
 
-const PhotoCard = () => {
+type PropsType = {
+  key: string
+  photoUrl: string
+  photoId: string
+}
+
+const PhotoCard: FC<PropsType> = ({photoUrl, photoId})=> {
   return (
     <>
       <div className={g.container}>
         <div className={s.photoCard__main}>
-          <h1>Photo id is</h1>
-          <img className={s.photoCard__photo}
-               src={'https://avatars.mds.yandex.net/i?id=4f13dd9ec981bad8a4743cf261aa77cda1e97358-7551053-images-thumbs&n=13'}
-               alt={'users photo'}/>
+          <img className={s.photoCard__photo} src={photoUrl} alt={'photo'}/>
+          <div>id = {photoId}</div>
         </div>
       </div>
     </>

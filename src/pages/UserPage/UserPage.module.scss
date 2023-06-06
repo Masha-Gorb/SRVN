@@ -1,0 +1,6 @@
+.photos__container {
+  display: grid;
+  margin-top: 20px;
+  grid-template-rows: 250px;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+}

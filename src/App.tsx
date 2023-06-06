@@ -1,8 +1,9 @@
 import { Routes, Route} from "react-router-dom";
 import {Layout} from "./pages/Layout";
-import {StartPage} from "./pages/StartPage";
+import {AllUsersPage} from "./pages/AllUsersPage";
 import {UserPage} from "./pages/UserPage";
 import {NotFoundPage} from "./pages/NotFoundPage";
+import {NotDataPage} from "./pages/NoDataPage";
 
 function App() {
 
@@ -10,8 +11,9 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route path="/" element={<StartPage/>}/>
-          <Route path="/user" element={<UserPage />}/>
+          <Route index element={<AllUsersPage/>}/>
+          <Route path="/user" element={<NotDataPage />}/>
+          <Route path="/user/:id" element={<UserPage />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
