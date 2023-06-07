@@ -35,7 +35,7 @@ const UserCard: FC<userCardPropsType> = ({ person, company }) => {
             </ul>
           </div>
 
-          <div className={s.userCard__onHoverMoreInfo}>More info...</div>
+          <div className={s.userCard__onHoverMoreInfo}>More info</div>
           <div className={s.userCard__hiddenCompanyInfo}>
             <ul>
               <li><b>Company name</b><br/> {company.name}</li>

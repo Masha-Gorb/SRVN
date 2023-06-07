@@ -1,19 +1,21 @@
+@use '/src/variables' as v;
+
 .userCard__main {
   height: 200px;
   width: 270px;
   padding: 0 15px 15px;
-  background: #FFFFFF;
+  background: v.$colorWhite;
   box-shadow: 10px 14px 39px -11px rgba(0.1, 0.1, 0.1, 0.1);
   border-radius: 10px;
-  border: 1px solid #FFC85E;
+  border: 1px solid v.$colorOrange;
   a {
     text-decoration: none;
-    color: #3F4E65;
+    color: v.$colorBlue;
   }
   li {
     list-style-type: none;
     b {
-      color: #3F4E65;
+      color: v.$colorBlue;
     }
   }
   ul {
@@ -26,9 +28,10 @@
   height: 30px;
   border-radius: 10px;
   cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: #FFC85E;
-  padding: 10px;
+  text-decoration: underline dotted;
+  text-decoration-color: v.$colorBlue;
+  padding-top: 10px;
+  padding-left: 0;
 }
 
 .userCard__hiddenCompanyInfo {
@@ -39,8 +42,8 @@
   padding: 0 20px 20px;
   opacity: 0;
   transition: 0s;
-  background: #FFFFFF;
-  border: 1px solid #3F4E65;
+  background: v.$colorWhite;
+  border: 1px solid v.$colorBlue;
   box-shadow: 10px 14px 39px -11px rgba(0.1, 0.1, 0.1, 0.1);
   border-radius: 10px;
 }

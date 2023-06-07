@@ -1,6 +1,36 @@
+@use '/src/variables' as v;
+
 .photos__container {
   display: grid;
-  margin-top: 20px;
-  grid-template-rows: 250px;
-  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-template-rows: 300px 300px 300px 300px;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-gap: 10px;
+
+  @media (max-width: 1080px) {
+    grid-template-rows: 300px 300px 300px 300px;
+    grid-template-columns: 330px 330px;
+    grid-gap: 20px;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-rows: 300px 300px 300px 300px;
+    grid-template-columns: 330px;
+    grid-gap: 20px;
+  }
 }
+
+.photos__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  button {
+    height: 30px;
+    width: 100px;
+    border: transparent;
+    border-radius: 20px;
+    background-color: v.$colorOrange;
+  }
+}
+

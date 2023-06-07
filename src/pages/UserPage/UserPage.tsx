@@ -70,7 +70,11 @@ const UserPage = () => {
 
         <hr/>
 
-        <div>всего фото {photos.length}</div>
+        <div>In this album {photos.length} photos</div>
+        <div className={s.photos__buttons}>
+          <button onClick={() => getPreviousTenPhotos()} disabled={start === 0}>&#8592; backward</button>
+          <button onClick={() => getNextTenPhotos()} disabled={end === 50}>forward &#8594;</button>
+        </div>
 
         {photosStatus === 'loading' && <h2>Loading...</h2>}
         {photosError &&  <h2>An error occured: {error}</h2>}
@@ -81,8 +85,6 @@ const UserPage = () => {
                                                                                   photoId={m.id}/>)}</div>
         )}
 
-        <button onClick={() => getPreviousTenPhotos()} disabled={start === 0}>backward</button>
-        <button onClick={() => getNextTenPhotos()} disabled={end === 50}>forward</button>
       </div>
 
     </>

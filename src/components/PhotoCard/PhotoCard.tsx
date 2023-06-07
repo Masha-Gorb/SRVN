@@ -14,7 +14,7 @@ const PhotoCard: FC<PropsType> = ({photoUrl, photoId})=> {
       <div className={g.container}>
         <div className={s.photoCard__main}>
           <img className={s.photoCard__photo} src={photoUrl} alt={'photo'}/>
-          <div>id = {photoId}</div>
+          <div>Photo ID: {photoId}</div>
         </div>
       </div>
     </>

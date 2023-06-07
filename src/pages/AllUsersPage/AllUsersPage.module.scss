@@ -1,4 +1,4 @@
-.startPage__userCards {
+.allUsersPage__userCards {
   display: grid;
   grid-template-rows: 250px 250px 250px 250px;
   grid-template-columns: 330px 330px 330px;
@@ -15,8 +15,4 @@
     grid-template-columns: 330px;
     grid-gap: 20px;
   }
-}
-
-h1 {
-  color: #3F4E65;
 }

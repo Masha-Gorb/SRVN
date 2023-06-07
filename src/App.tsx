@@ -4,6 +4,7 @@ import {AllUsersPage} from "./pages/AllUsersPage";
 import {UserPage} from "./pages/UserPage";
 import {NotFoundPage} from "./pages/NotFoundPage";
 import {NotDataPage} from "./pages/NoDataPage";
+import {SecretPage} from "./pages/SecretPage";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<AllUsersPage/>}/>
           <Route path="/user" element={<NotDataPage />}/>
           <Route path="/user/:id" element={<UserPage />}/>
+          <Route path="/secret" element={<SecretPage />}/>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

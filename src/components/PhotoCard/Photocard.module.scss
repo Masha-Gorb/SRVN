@@ -1,9 +1,14 @@
+@use '/src/variables' as v;
+
+
 .photoCard__main {
-  height: 200px;
+  height: 250px;
   width: 200px;
-  border-radius: 20px;
-  background-color: pink;
   padding: 20px;
+  background: v.$colorWhite;
+  box-shadow: 10px 14px 39px -11px rgba(0.1, 0.1, 0.1, 0.1);
+  border-radius: 10px;
+  border: 1px solid v.$colorOrange;
 
   .photoCard__photo {
     width: 200px;

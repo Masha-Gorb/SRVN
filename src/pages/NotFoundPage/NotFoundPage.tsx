@@ -5,7 +5,7 @@ const NotFoundPage = () => {
   return (
     <>
       <div className={g.container}>
-        <h1>Page not found</h1>
+        <h1>Page not found 😞</h1>
         <div>Please, go back to <Link to="/">All users</Link></div>
       </div>
 
