@@ -1,7 +1,51 @@
 .userCard__main {
-  height: 400px;
-  width: 300px;
-  border-radius: 20px;
-  background-color: pink;
-  padding: 20px;
+  height: 200px;
+  width: 270px;
+  padding: 0 15px 15px;
+  background: #FFFFFF;
+  box-shadow: 10px 14px 39px -11px rgba(0.1, 0.1, 0.1, 0.1);
+  border-radius: 10px;
+  border: 1px solid #FFC85E;
+  a {
+    text-decoration: none;
+    color: #3F4E65;
+  }
+  li {
+    list-style-type: none;
+    b {
+      color: #3F4E65;
+    }
+  }
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.userCard__onHoverMoreInfo {
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #FFC85E;
+  padding: 10px;
+}
+
+.userCard__hiddenCompanyInfo {
+  position: relative;
+  top: -150px;
+  left: 100px;
+  height: 200px;
+  padding: 0 20px 20px;
+  opacity: 0;
+  transition: 0s;
+  background: #FFFFFF;
+  border: 1px solid #3F4E65;
+  box-shadow: 10px 14px 39px -11px rgba(0.1, 0.1, 0.1, 0.1);
+  border-radius: 10px;
+}
+
+.userCard__onHoverMoreInfo:hover+ .userCard__hiddenCompanyInfo {
+  opacity: 1;
+  transition: 1s;
 }

@@ -26,26 +26,25 @@ const UserCard: FC<userCardPropsType> = ({ person, company }) => {
     <>
       <div className={g.container}>
         <div className={s.userCard__main}>
-          <h1>This is card of user </h1>
-
           <div>
             <ul>
-              <li><Link to={`/user/${person.id}`}>{person.name}</Link></li>
-              <li>username: {person.username} </li>
-              <li>email: {person.email}</li>
-              <li>phone: {person.phone}</li>
+              <li><h3><Link to={`/user/${person.id}`}>{person.name}</Link></h3></li>
+              <li><b>Username</b> {person.username}</li>
+              <li><b>Email</b> {person.email}</li>
+              <li><b>Phone</b> {person.phone}</li>
             </ul>
           </div>
 
-          <div>
+          <div className={s.userCard__onHoverMoreInfo}>More info...</div>
+          <div className={s.userCard__hiddenCompanyInfo}>
             <ul>
-              <li>company name: {company.name}</li>
-              <li>company bs: {company.bs}</li>
-              <li>company catch phrase: {company.catchPhrase}</li>
+              <li><b>Company name</b><br/> {company.name}</li>
+              <li><b>Company bs</b><br/>  {company.bs}</li>
+              <li><b>Catch phrase</b><br/>  {company.catchPhrase}</li>
             </ul>
           </div>
-
         </div>
+
       </div>
 
     </>

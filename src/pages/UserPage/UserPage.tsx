@@ -53,6 +53,7 @@ const UserPage = () => {
     setCroppedPhotos(photos.slice(tempStart, tempEnd))
   }
 
+
   useEffect(()=>{
     setCroppedPhotos(photos.slice(start,end))
   },[photos.length, start, end, photos])

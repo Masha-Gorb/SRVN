@@ -20,7 +20,7 @@ const AllUsersPage = () => {
   return (
     <>
       <div className={g.container}>
-        <h1>All Users Page</h1>
+        <h1>All Users</h1>
         {status === 'loading' && <h2>Loading...</h2>}
         {error &&  <h2>An error occured: {error}</h2>}
 

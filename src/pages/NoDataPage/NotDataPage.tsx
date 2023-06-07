@@ -6,7 +6,7 @@ const NotDataPage = () => {
     <>
       <div className={g.container}>
         <h1>Нет данных, извините 🥺</h1>
-        <div>Please, go back to start <Link to="/">Start Page</Link></div>
+        <div>Please, go back to start <Link to="/">All users</Link></div>
       </div>
 
     </>
