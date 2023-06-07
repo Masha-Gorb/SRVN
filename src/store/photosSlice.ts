@@ -1,42 +1,46 @@
-import { createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {fetchPhotos} from "../async/fetchPhotos";
-import {photosType} from "../types/photosType";
+import {PhotosType} from "../types/photosType";
 
 export interface PhotosState {
-  photos: photosType[],
+  photos: PhotosType[],
   status: string,
-  error: string,
+  error: string | null,
 }
 
 const initialState: PhotosState = {
   photos: [],
   status: '',
-  error: '',
+  error: null,
 }
-const setError = (state, action: PayloadAction<string>) => {
-  state.status = 'rejected';
-  state.error = action.payload;
-}
+
 export const photosSlice = createSlice({
   name: 'photos',
   initialState,
   reducers: {
-    getAllPhotos: (state: PhotosState, action: PayloadAction<photosType[]>) => {
+    getAllPhotos: (state: PhotosState, action: PayloadAction<PhotosType[]>) => {
       state.photos = action.payload
     }
   },
-  extraReducers: {
-    [fetchPhotos.pending]: (state) => {
-      state.status = 'loading';
-      state.error = null;
-    },
-    [fetchPhotos.fulfilled]: (state, action) => {
-      state.status = 'resolved';
-      state.photos = action.payload;
-    },
-    [fetchPhotos.rejected]: setError,
-  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchPhotos.pending, (state: PhotosState) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(fetchPhotos.fulfilled, (state: PhotosState, action: PayloadAction<PhotosType[]>) => {
+        state.status = 'resolved';
+        state.photos = action.payload;
+      })
+      .addMatcher(isError, (state:PhotosState, action: PayloadAction<string>) => {
+        state.error = action.payload;
+      });
+  }
 })
+
+function isError(action: AnyAction) {
+  return action.type.endsWith('rejected');
+}
 
 export const { getAllPhotos } = photosSlice.actions
 export default photosSlice.reducer

@@ -1,11 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import {PhotosType} from "../types/photosType";
 
-//так же типизировать в фетч альбумс
-export const fetchPhotos  =  createAsyncThunk(
+export const fetchPhotos  =  createAsyncThunk<PhotosType[], string, { rejectValue: string }>(
   'photos/fetchPhotos',
   async (albumId:string, {rejectWithValue}) => {
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}photos?albumId=${albumId}`);
       if (!response.ok) {
         throw new Error('Server Error!');
       }

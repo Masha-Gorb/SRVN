@@ -1,19 +1,19 @@
-type userAddressGeoType = {
+type UserAddressGeoType = {
   lat: string,
   lng: string
 }
-type userAddressType = {
+type UserAddressType = {
   street: string,
   suite: string,
   city: string,
   zipcode: string,
-  geo: userAddressGeoType
+  geo: UserAddressGeoType
 }
 
-export type usersType = {
+export type UsersType = {
   id: 1,
   name: string,
   username: string,
   email: string,
-  address: userAddressType
+  address: UserAddressType
 }

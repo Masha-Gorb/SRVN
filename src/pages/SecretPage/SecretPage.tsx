@@ -6,9 +6,9 @@ const SecretPage = () => {
   return (
     <>
       <div className={g.container}>
-        <h1>You found secret page 😉</h1>
+        <h1>Secret Page 😉</h1>
         <div style={{marginBottom: '100px'}}>Please, go back to start <Link to="/">All users</Link></div>
-        <img src={badgerGif} alt={'badger gif'}/>
+        <img src={badgerGif} alt={'badger gif'} style={{width: '300px'}}/>
       </div>
 
     </>

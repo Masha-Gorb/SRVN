@@ -46,6 +46,12 @@
   border: 1px solid v.$colorBlue;
   box-shadow: 10px 14px 39px -11px rgba(0.1, 0.1, 0.1, 0.1);
   border-radius: 10px;
+
+  @media (max-width: 767px) {
+    left: 50px;
+    width: 200px;
+
+  }
 }
 
 .userCard__onHoverMoreInfo:hover+ .userCard__hiddenCompanyInfo {

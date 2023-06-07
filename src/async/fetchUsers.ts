@@ -1,10 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import {UsersType} from "../types/usersType";
 
-export const fetchUsers = createAsyncThunk(
+export const fetchUsers = createAsyncThunk<UsersType[]>(
   'users/fetchUsers',
   async function(_, {rejectWithValue}) {
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}users`);
       if (!response.ok) {
         throw new Error('Server Error!');
       }

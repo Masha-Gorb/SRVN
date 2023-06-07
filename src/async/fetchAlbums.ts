@@ -1,13 +1,14 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
+import {AlbumsType} from "../types/albumsType";
 
 
-export const fetchAlbums  =  createAsyncThunk(
+export const fetchAlbums  =  createAsyncThunk<AlbumsType[], string, { rejectValue: string }>(
   'albums/fetchAlbums',
   async function(userID: string, {rejectWithValue}) {
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userID}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}albums?userId=${userID}`);
       if (!response.ok) {
-        throw new Error('Server Error!');
+        throw new Error('Server Error!') ;
       }
 
       const data = await response.json();
