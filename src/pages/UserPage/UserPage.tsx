@@ -6,6 +6,8 @@ import {useAppDispatch, useAppSelector} from "../../store/hooks";
 import {useEffect, useState} from "react";
 import {fetchPhotos} from "../../async/fetchPhotos";
 import {fetchAlbums} from "../../async/fetchAlbums";
+import {PhotosType} from "../../types/photosType";
+import {AlbumsType} from "../../types/albumsType";
 
 const UserPage = () => {
   const {id} = useParams();
@@ -13,15 +15,15 @@ const UserPage = () => {
 
 
   const dispatch = useAppDispatch();
-  const status = useAppSelector(state => state.albums.status);
-  const error = useAppSelector(state => state.albums.error);
-  const albums = useAppSelector(state => state.albums.albums);
+  const status: string = useAppSelector(state => state.albums.status);
+  const error : string = useAppSelector(state => state.albums.error);
+  const albums : AlbumsType[] = useAppSelector(state => state.albums.albums);
 
-  const photosStatus = useAppSelector(state => state.photos.status);
-  const photosError = useAppSelector(state => state.photos.error);
-  const photos = useAppSelector(state => state.photos.photos);
+  const photosStatus: string = useAppSelector(state => state.photos.status);
+  const photosError: string = useAppSelector(state => state.photos.error);
+  const photos : PhotosType[] = useAppSelector(state => state.photos.photos);
 
-  const [croppedPhotos, setCroppedPhotos] = useState([]);
+  const [croppedPhotos, setCroppedPhotos] = useState<PhotosType[]>([]);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState (10);
 
@@ -32,7 +34,7 @@ const UserPage = () => {
 
   useEffect(() => {
     if (status === 'resolved' && albums.length) {
-      dispatch(fetchPhotos(albums[0].id));
+      dispatch(fetchPhotos(String(albums[0].id)));
     }
   }, [status, dispatch, albums]);
 

@@ -10,10 +10,19 @@ type UserAddressType = {
   geo: UserAddressGeoType
 }
 
+type UserCompanyType = {
+  name: string
+  bs: string
+  catchPhrase: string
+}
+
 export type UsersType = {
-  id: 1,
+  id: number,
   name: string,
   username: string,
   email: string,
+  phone: string
+  website: string
   address: UserAddressType
+  company: UserCompanyType
 }

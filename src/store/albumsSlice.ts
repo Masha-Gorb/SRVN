@@ -5,13 +5,13 @@ import {AlbumsType} from "../types/albumsType";
 export interface AlbumsState {
   albums: AlbumsType[],
   status: string,
-  error: string | null,
+  error: string,
 }
 
 const initialState: AlbumsState = {
   albums: [],
   status: '',
-  error: null,
+  error: '',
 }
 
 export const albumsSlice = createSlice({
@@ -26,7 +26,7 @@ export const albumsSlice = createSlice({
     builder
       .addCase(fetchAlbums.pending, (state: AlbumsState) => {
         state.status = 'loading';
-        state.error = null;
+        state.error = '';
       })
       .addCase(fetchAlbums.fulfilled, (state: AlbumsState, action: PayloadAction<AlbumsType[]>) => {
         state.status = 'resolved';

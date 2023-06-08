@@ -5,13 +5,13 @@ import {PhotosType} from "../types/photosType";
 export interface PhotosState {
   photos: PhotosType[],
   status: string,
-  error: string | null,
+  error: string,
 }
 
 const initialState: PhotosState = {
   photos: [],
   status: '',
-  error: null,
+  error: '',
 }
 
 export const photosSlice = createSlice({
@@ -26,7 +26,7 @@ export const photosSlice = createSlice({
     builder
       .addCase(fetchPhotos.pending, (state: PhotosState) => {
         state.status = 'loading';
-        state.error = null;
+        state.error = '';
       })
       .addCase(fetchPhotos.fulfilled, (state: PhotosState, action: PayloadAction<PhotosType[]>) => {
         state.status = 'resolved';

@@ -5,13 +5,13 @@ import {UsersType} from "../types/usersType";
 export interface UsersState {
   users: UsersType[],
   status: string,
-  error: string | null,
+  error: string,
 }
 
 const initialState: UsersState = {
   users: [],
   status: '',
-  error: null,
+  error: '',
 }
 
 export const usersSlice = createSlice({
@@ -26,7 +26,7 @@ export const usersSlice = createSlice({
     builder
       .addCase(fetchUsers.pending, (state: UsersState) => {
         state.status = 'loading';
-        state.error = null;
+        state.error = '';
       })
       .addCase(fetchUsers.fulfilled, (state: UsersState, action: PayloadAction<UsersType[]>) => {
         state.status = 'resolved';

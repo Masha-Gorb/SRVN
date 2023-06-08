@@ -2,16 +2,17 @@ import g from "../../global.module.scss";
 import s from './AllUsersPage.module.scss'
 import {UserCard} from "../../components/UserCard";
 import {fetchUsers} from "../../async/fetchUsers";
-import {useEffect} from "react";
+import {FC, useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../../store/hooks";
 import {Link} from "react-router-dom";
+import {UsersType} from "../../types/usersType";
 
-const AllUsersPage = () => {
+const AllUsersPage:FC = () => {
 
   const dispatch = useAppDispatch();
-  const status = useAppSelector(state => state.users.status);
-  const error = useAppSelector(state => state.users.error);
-  const users = useAppSelector(state => state.users.users);
+  const status: string = useAppSelector(state => state.users.status);
+  const error: string = useAppSelector(state => state.users.error);
+  const users: UsersType[] = useAppSelector(state => state.users.users);
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -31,21 +32,18 @@ const AllUsersPage = () => {
         <br/>
 
         <div className={s.allUsersPage__userCards}>
+
           {users.map(m => {
             return <UserCard
               key={m.id}
-              person={{
-                id: m.id,
-                name: m.name,
-                username: m.username,
-                email: m.email,
-                phone: m.phone
-              }}
-              company={{
-                name: m.company.name,
-                catchPhrase: m.company.catchPhrase,
-                bs: m.company.bs
-              }}
+              id={m.id}
+              name={m.name}
+              username={m.username}
+              email={m.email}
+              phone={m.phone}
+              companyName={m.company.name}
+              companyBs={m.company.bs}
+              companyCatchPhrase={m.company.catchPhrase}
             />
           })}
         </div>

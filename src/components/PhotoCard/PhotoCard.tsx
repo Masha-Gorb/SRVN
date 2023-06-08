@@ -3,9 +3,9 @@ import s from './Photocard.module.scss'
 import {FC} from "react";
 
 type PropsType = {
-  key: string
+  key: number
   photoUrl: string
-  photoId: string
+  photoId: number
 }
 
 const PhotoCard: FC<PropsType> = ({photoUrl, photoId})=> {
